@@ -2,8 +2,27 @@ doctype html
 html(lang="ru")
     head
         meta(charset="utf-8")
-        title Page title
+        title Toolbox
+        link(rel="stylesheet" href="css/bulma.min.css")
         link(rel="stylesheet" href="css/main.min.css")
-    body.body
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    body.is-flex
+        .container
+            .columns
+                .column
+                    h2.is-size-1 Migration format
+                    textarea.textarea.my-1#mf-in(rows="5" tabindex="-1")
+                    textarea.textarea.my-1#mf-out(rows="5" tabindex="-1")
+                    button.button.is-primary.is-size-3#mf-btn(tabindex="1") Format and copy
+                    button.button.is-danger.is-size-3#mf-clear(tabindex="-1") Clear
+                .column
+                    h2.is-size-1 SQL minify
+                    textarea.textarea.my-1#sqlmin-in(rows="5" tabindex="-1")
+                    textarea.textarea.my-1#sqlmin-out(rows="5" tabindex="-1")
+                    button.button.is-primary.is-size-3#sqlmin-btn(type='submit' tabindex="2") Minify and copy
+                    button.button.is-size-3.is-danger#sqlmin-clear(tabindex="-1") Clear
 
-        script(src="js/scripts.min.js")
+
+
+script(defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js")
+script(src='js/scripts.min.js')

@@ -1,4 +1,13 @@
 @import "normalize";
+@import "variables";
 
+html, body {
+  height: 100%;
+}
+
+.my-1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 @import "media";

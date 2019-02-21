@@ -2,16 +2,31 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Page title</title>
+    <title>Toolbox</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
     <link rel="stylesheet" href="css/main.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body class="body">
-    <div class="migration-format">
-      <h2 class="migration-format__title">Migration Format</h2>
-      <button class="migration-format__button">Format and Copy</button>
-      <textarea class="migration-format__textarea" id="mf-input" placeholder="input"></textarea>
-      <textarea class="migration-format__textarea" id="mf-output" placeholder="output"></textarea>
+  <body class="is-flex">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h2 class="is-size-1">Migration format</h2>
+          <textarea class="textarea my-1" id="mf-in" rows="5" tabindex="-1"></textarea>
+          <textarea class="textarea my-1" id="mf-out" rows="5" tabindex="-1"></textarea>
+          <button class="button is-primary is-size-3" id="mf-btn" tabindex="1">Format and copy</button>
+          <button class="button is-danger is-size-3" id="mf-clear" tabindex="-1">Clear</button>
+        </div>
+        <div class="column">
+          <h2 class="is-size-1">SQL minify</h2>
+          <textarea class="textarea my-1" id="sqlmin-in" rows="5" tabindex="-1"></textarea>
+          <textarea class="textarea my-1" id="sqlmin-out" rows="5" tabindex="-1"></textarea>
+          <button class="button is-primary is-size-3" id="sqlmin-btn" type="submit" tabindex="2">Minify and copy</button>
+          <button class="button is-size-3 is-danger" id="sqlmin-clear" tabindex="-1">Clear</button>
+        </div>
+      </div>
     </div>
-    <script src="js/scripts.min.js"></script>
   </body>
 </html>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="js/scripts.min.js"></script>

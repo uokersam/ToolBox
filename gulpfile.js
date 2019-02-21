@@ -28,7 +28,10 @@ gulp.task('pug', function() {
 });
 
 gulp.task('styles', function() {
-  return gulp.src('app/scss/**/*.scss').
+  return gulp.src([
+    'node_modules/bulma/bulma.sass',
+    'app/scss/**/*.scss',
+  ]).
       pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError())).
       pipe(rename({suffix: '.min', prefix: ''})).
       pipe(autoprefixer(['last 4 versions'])).
@@ -54,7 +57,8 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('code', function() {
-  return gulp.src('app/dist/**/*.html').pipe(browserSync.reload({stream: true}));
+  return gulp.src('app/dist/**/*.html').
+      pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', function() {
