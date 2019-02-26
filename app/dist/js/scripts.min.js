@@ -66,7 +66,7 @@
       let temp = text;
       sql.in.value = temp;
 
-      temp = temp.replace(/\s\s+/g, ' ');
+      temp = temp.replace(/\s\s+/g, ' ').replace(/\n/g, ' ');
 
       sql.out.value = temp;
       clipBoardContent = temp;
