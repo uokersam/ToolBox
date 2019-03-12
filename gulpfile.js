@@ -15,9 +15,6 @@ gulp.task('browser-sync', function() {
       baseDir: 'app/dist',
     },
     notify: false,
-    // open: false,
-    // online: false, // Work Offline Without Internet Connection
-    // tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
   });
 });
 
@@ -49,6 +46,8 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   return gulp.src([
+    'app/js/components.js',
+    'app/js/helpers.js',
     'app/js/common.js', // Always at the end
   ]).
       pipe(concat('scripts.min.js')).
