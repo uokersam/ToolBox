@@ -17,7 +17,7 @@
           replace(/;;/g, ';').
           replace(/^--.*\r?\n/gm, '').
           replace(/^\s*\r?\n/gm, '').
-          replace(/.+/gm, function(match, p1, p2, p3, offset, string) {
+          replace(/.+/gm, function(match) {
             return '$this->addSql("' + match + '");';
           });
 
