@@ -32,13 +32,7 @@
       console.log('Failed to read from clipboard', err);
     });
 
-    changeButtonContent(mf.button, 'Copied!');
-
-    setTimeout(function() {
-      mf.button.classList.remove('is-success');
-      mf.button.classList.add('is-primary');
-      mf.button.textContent = 'Format and copy';
-    }, 1000);
+    changeButtonContent(mf.button, 'Copied!', 'Format and copy');
   });
 
   mf.clear.addEventListener('click', function() {
@@ -63,16 +57,7 @@
     }).catch(err => {
       console.log('Failed to read from clipboard', err);
     });
-
-    changeButtonContent(sql.button, 'Copied!');
-
-    //todo insert setTimeout inside changeButtonContent function
-    setTimeout(function() {
-      sql.button.classList.remove('is-success');
-      sql.button.classList.add('is-primary');
-      sql.button.textContent = 'Format and copy';
-    }, 1000);
-
+    changeButtonContent(sql.button, 'Copied!', 'Minify and copy');
   });
 
   sql.clear.addEventListener('click', function() {
