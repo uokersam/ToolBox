@@ -46,7 +46,6 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   return gulp.src([
-    'app/js/components.js',
     'app/js/helpers.js',
     'app/js/common.js', // Always at the end
   ]).
