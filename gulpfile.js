@@ -7,7 +7,8 @@ const gulp = require('gulp'),
     notify = require('gulp-notify'),
     csso = require('gulp-csso'),
     cssbeautify = require('gulp-cssbeautify'),
-    pug = require('gulp-pug');
+    pug = require('gulp-pug'),
+    terser = require('gulp-terser');
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -50,6 +51,7 @@ gulp.task('scripts', function() {
     'app/js/common.js', // Always at the end
   ]).
       pipe(concat('scripts.min.js')).
+      pipe(terser()).
       pipe(gulp.dest('app/dist/js')).
       pipe(browserSync.reload({stream: true}));
 });
