@@ -29,36 +29,39 @@ gulp.task('styles', function() {
   return gulp.src([
     'node_modules/bulma/bulma.sass',
     'app/scss/**/*.scss',
-  ]).
-      pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError())).
-      pipe(rename({suffix: '.min', prefix: ''})).
-      pipe(autoprefixer(['last 4 versions'])).
-      pipe(csso({
+  ])
+      .pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError()))
+      .pipe(rename({
+        suffix: '.min',
+        prefix: '',
+      }))
+      .pipe(autoprefixer(['last 4 versions']))
+      .pipe(csso({
         comments: false,
-      })).
-      pipe(cssbeautify({
+      }))
+      .pipe(cssbeautify({
         indent: '  ',
         openbrace: 'separate-line',
         autosemicolon: true,
-      })).
-      pipe(gulp.dest('app/dist/css')).
-      pipe(browserSync.stream());
+      }))
+      .pipe(gulp.dest('app/dist/css'))
+      .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function() {
   return gulp.src([
     'app/js/helpers.js',
-    'app/js/common.js', // Always at the end
-  ]).
-      pipe(concat('scripts.min.js')).
-      pipe(terser()).
-      pipe(gulp.dest('app/dist/js')).
-      pipe(browserSync.reload({stream: true}));
+    'app/js/common.js',
+  ])
+      .pipe(concat('scripts.min.js'))
+      .pipe(terser())
+      .pipe(gulp.dest('app/dist/js'))
+      .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('code', function() {
-  return gulp.src('app/dist/**/*.html').
-      pipe(browserSync.reload({stream: true}));
+  return gulp.src('app/dist/**/*.html')
+      .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', function() {
