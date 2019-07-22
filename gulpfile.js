@@ -13,7 +13,7 @@ const gulp = require('gulp'),
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
-      baseDir: 'app/dist',
+      baseDir: 'public',
     },
     notify: false,
   });
@@ -22,7 +22,7 @@ gulp.task('browser-sync', function() {
 gulp.task('pug', function() {
   return gulp.src('app/**/*.pug').pipe(pug({
     pretty: true,
-  })).pipe(gulp.dest('app/dist'));
+  })).pipe(gulp.dest('public'));
 });
 
 gulp.task('styles', function() {
@@ -44,7 +44,7 @@ gulp.task('styles', function() {
         openbrace: 'separate-line',
         autosemicolon: true,
       }))
-      .pipe(gulp.dest('app/dist/css'))
+      .pipe(gulp.dest('public/css'))
       .pipe(browserSync.stream());
 });
 
@@ -55,12 +55,12 @@ gulp.task('scripts', function() {
   ])
       .pipe(concat('scripts.min.js'))
       .pipe(terser())
-      .pipe(gulp.dest('app/dist/js'))
+      .pipe(gulp.dest('public/js'))
       .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('code', function() {
-  return gulp.src('app/dist/**/*.html')
+  return gulp.src('public/**/*.html')
       .pipe(browserSync.reload({stream: true}));
 });
 
